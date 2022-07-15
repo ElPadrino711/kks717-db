@@ -1,0 +1,20 @@
+{
+  "name": "@kks717/db",
+  "version": "1.0.1",
+  "description": "Simple json database easy to use",
+  "main": "src/index.js",
+  "typings": "src/index.d.ts",
+  "keywords": [
+    "json",
+    "db",
+    "database",
+    "storage",
+    "node"
+  ],
+  "author": "kks717",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElPadrino711/717-DB.git"
+  }
+}
