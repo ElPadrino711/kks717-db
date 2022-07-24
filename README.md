@@ -10,6 +10,7 @@
 		- [Size](#size)
 		- [Data](#data)
 		- [Save](#save)
+		- [Start](#start)
 
 ## Examples
 
@@ -27,6 +28,14 @@ const db = new Database({
 	split_object: '.', // Split object.
 	auto_save: true // Autosave?
 });
+
+db.on('ready', () => {
+    console.log('Database Ready!!!')
+});
+
+db.start();
+
+// Do your things after this
 ```
 
  #### Set
@@ -81,4 +90,11 @@ db.set('main', 'something', 'Hello');
 
 db.save();
 // Saves the data
+```
+
+#### Start
+```js
+db.start()
+
+// Only use once
 ```
