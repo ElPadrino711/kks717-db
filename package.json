@@ -1,6 +1,6 @@
 {
   "name": "@kks717/db",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simple json database easy to use",
   "main": "src/index.js",
   "typings": "src/index.d.ts",
