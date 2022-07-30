@@ -1,8 +1,8 @@
 import EventEmitter from "node:events"
 
-export declare class Database extends EventEmitter<d=any> {
-  path: d;
-  data: d;
+export declare class Database extends EventEmitter<any> {
+  path: any;
+  data: any;
   options:  {
     path?: string;
     tables?: string[];
@@ -23,11 +23,11 @@ export declare class Database extends EventEmitter<d=any> {
   })
 
   start() : undefined;
-  set(table: string, key: string, value: d) : undefined;
-  get(table: string, key: string) : d | undefined;
+  set(table: string, key: string, value: any) : undefined;
+  get(table: string, key: string) : any | undefined;
   delete(table: string, key: string) : boolean | undefined;
   has(table: string, key: string) : boolean | undefined;
   size(table: string) : number | undefined;
-  data(table: string) : d | undefined;
+  data(table: string) : any | undefined;
   ping(): number;
 }
