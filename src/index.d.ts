@@ -1,6 +1,6 @@
 import EventEmitter from "node:events"
 
-export declare class Database extends EventEmitter <d=any> {
+export declare class Database extends EventEmitter<d=any> {
   path: d;
   data: d;
   options:  {
