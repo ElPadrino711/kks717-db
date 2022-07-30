@@ -1,6 +1,6 @@
 {
   "name": "@kks717/db",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Simple json database easy to use",
   "main": "src/index.js",
   "typings": "src/index.d.ts",
@@ -16,5 +16,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ElPadrino711/717-DB.git"
+  },
+  "dependencies": {
+    "@kks717/db": "^1.0.3"
   }
 }

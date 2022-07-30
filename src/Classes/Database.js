@@ -1,6 +1,6 @@
 const ErrorDB = require("./ErrorDB.js"),
   fs = require("node:fs"),
-  { EventEmitter } = require("node:events"),
+  EventEmitter = require("node:events"),
   DefaultOptions = {
     path: "./database",
     tables: ["main"],
@@ -25,13 +25,13 @@ class Database extends EventEmitter {
    */
   constructor(opt) {
     super()
-
+    /*
     if (!isObject(opt))
       throw new ErrorDB(
         "the proovided options aren't a object",
         "INVALID_OPTIONS",
         ""
-      )
+      )*/
 
     this.path = {}
     this.object = {}
@@ -95,6 +95,12 @@ class Database extends EventEmitter {
    * @param table {string} table name
    */
   save(t) {
+    if (!this.ready)
+      throw new ErrorDB(
+        "Do <Database>.start() first",
+        "Database isn't connected",
+        ".prototype.save(table)"
+      )
     if (!t)
       throw new ErrorDB(
         "Parameter 'table' is undefined",
@@ -122,30 +128,36 @@ class Database extends EventEmitter {
    * @param value {any} The new value
    */
   set(t, k, v) {
+    if (!this.ready)
+      throw new ErrorDB(
+        "Do <Database>.start() first",
+        "Database isn't connected",
+        ".prototype.set(table, key, value)"
+      )
     if (!t)
       throw new ErrorDB(
         "Parameter 'table' is undefined",
         "INVALID_TABLE",
-        ".prototype.set(table,key,value)"
+        ".prototype.set(table, key, value)"
       )
     if (!k)
       throw new ErrorDB(
         "Key not provided",
         "INVALID_KEY",
-        ".prototype.set(table,key,value)"
+        ".prototype.set(table, key, value)"
       )
     if (!v)
       throw new ErrorDB(
         "Value not provided",
         "INVALID_VALUE",
-        ".prototype.set(table,key,value)"
+        ".prototype.set(table, key, value)"
       )
     let data = this.object[t]
     if (!data)
       throw new ErrorDB(
         "Table " + t + " doesnt exist",
         "INVALID_TABLE",
-        ".prototype.set(table,key,value)"
+        ".prototype.set(table, key, value)"
       )
 
     const [...keys] = k.split(this.options.split_object)
@@ -172,6 +184,12 @@ class Database extends EventEmitter {
    */
 
   get(t, k) {
+    if (!this.ready)
+      throw new ErrorDB(
+        "Do <Database>.start() first",
+        "Database isn't connected",
+        ".prototype.get(table, key)"
+      )
     if (!t)
       throw new ErrorDB(
         "Parameter 'table' is undefined",
@@ -209,6 +227,12 @@ class Database extends EventEmitter {
    * @return {boolean}
    */
   delete(t, k) {
+    if (!this.ready)
+      throw new ErrorDB(
+        "Do <Database>.start() first",
+        "Database isn't connected",
+        ".prototype.delete(table, key)"
+      )
     if (!t)
       throw new ErrorDB(
         "Parameter 'table' is undefined",
@@ -250,6 +274,12 @@ class Database extends EventEmitter {
 	 * @return {boolean}
 	 */
   has(t, k) {
+    if (!this.ready)
+      throw new ErrorDB(
+        "Do <Database>.start() first",
+        "Database isn't connected",
+        ".prototype.has(table, key)"
+      )
     if (!t)
       throw new ErrorDB(
         "Parameter 'table' is undefined",
@@ -283,6 +313,12 @@ class Database extends EventEmitter {
    * @return {number}
    */
   size(t) {
+    if (!this.ready)
+      throw new ErrorDB(
+        "Do <Database>.start() first",
+        "Database isn't connected",
+        ".prototype.size(table)"
+      )
     if (!t)
       throw new ErrorDB(
         "Parameter 'table' is undefined",
@@ -305,6 +341,12 @@ class Database extends EventEmitter {
    * @return {any}
    */
   async data(t) {
+    if (!this.ready)
+      throw new ErrorDB(
+        "Do <Database>.start() first",
+        "Database isn't connected",
+        ".prototype.data(table)"
+      )
     if (!t)
       throw new ErrorDB(
         "Parameter 'table' is undefined",
@@ -322,6 +364,12 @@ class Database extends EventEmitter {
   }
 
   ping() {
+    if (!this.ready)
+      throw new ErrorDB(
+        "Do <Database>.start() first",
+        "Database isn't connected",
+        ".prototype.ping()"
+      )
     let ping = 0
     for (const t1 of this.tables) {
       const d1 = new Date()

@@ -2,7 +2,7 @@ class ErrorDB extends Error {
   constructor(msg, type, method) {
     super(msg)
 
-    this.name = "717-DB"
+    this.name = "@kks717/db"
     this.type = type
     this.method = `<Database>${method}`
   }
