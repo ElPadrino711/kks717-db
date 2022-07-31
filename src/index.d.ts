@@ -1,4 +1,4 @@
-import { EventEmitter } from "node:events"
+import { TypedEmitter } from "tiny-typed-emitter"
 
 interface opt {
   path?: string;
@@ -12,7 +12,7 @@ interface Events {
   ready: (db: Database) => any
 }
 
-export class Database extends EventEmitter<Events> {
+export class Database extends TypedEmitter<Events> {
   path: any;
   data: any;
   options: opt;

@@ -1,6 +1,6 @@
 const ErrorDB = require("./ErrorDB.js"),
   fs = require("node:fs"),
-  { EventEmitter } = require("node:events"),
+  { TypedEmitter } = require("tiny-typed-emitter"),
   DefaultOptions = {
     path: "./database",
     tables: ["main"],
@@ -12,7 +12,7 @@ const ErrorDB = require("./ErrorDB.js"),
     return typeof d == "object" && d != null
   }
 
-class Database extends EventEmitter {
+class Database extends TypedEmitter {
   /**
    * Main constructor
    * @param {object} [options] Database Options.

@@ -18,6 +18,6 @@
     "url": "git+https://github.com/ElPadrino711/717-DB.git"
   },
   "dependencies": {
-    "@kks717/db": "^1.0.3"
+    "tiny-typed-emitter": "^2.1.0"
   }
 }
