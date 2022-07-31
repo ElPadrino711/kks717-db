@@ -11,6 +11,7 @@
 		- [Data](#data)
 		- [Save](#save)
 		- [Start](#start)
+		- [Ping](#ping)
 
 ## Examples
 
@@ -97,4 +98,11 @@ db.save();
 db.start()
 
 // Only use once
+```
+
+#### Ping
+```js
+db.ping()
+
+// number
 ```

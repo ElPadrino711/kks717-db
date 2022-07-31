@@ -1,29 +1,29 @@
 import EventEmitter from "node:events"
 
-export declare class Database extends EventEmitter<any> {
+interface opt {
+  path?: string;
+  tables?: string[]; 
+  extension?: string;
+  split_object?: string; 
+  auto_save?: boolean;
+}
+
+interface Events {
+  ready: (db: Database) => any
+}
+
+export class Database extends EventEmitter<Events> {
   path: any;
   data: any;
-  options:  {
-    path?: string;
-    tables?: string[];
-    extension?: string; 
-    split_object?: string; 
-    auto_save?: boolean;
-  }
+  options: opt;
   ready: boolean;
   tables: string[];
   uwu: string;
 
-  constructor(options?: {
-    path?: string;
-    tables?: string[]; 
-    extension?: string;
-    split_object?: string; 
-    auto_save?: boolean;
-  })
+  constructor(options?: opt)
 
-  start() : undefined;
-  set(table: string, key: string, value: any) : undefined;
+  start() : void;
+  set(table: string, key: string, value: any) : void;
   get(table: string, key: string) : any | undefined;
   delete(table: string, key: string) : boolean | undefined;
   has(table: string, key: string) : boolean | undefined;
