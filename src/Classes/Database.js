@@ -1,6 +1,6 @@
 const ErrorDB = require("./ErrorDB.js"),
   fs = require("node:fs"),
-  EventEmitter = require("node:events"),
+  { EventEmitter } = require("node:events"),
   DefaultOptions = {
     path: "./database",
     tables: ["main"],
