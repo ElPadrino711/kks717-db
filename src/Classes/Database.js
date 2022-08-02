@@ -254,9 +254,10 @@ class Database extends TypedEmitter {
       )
 
     const [...keys] = k.split(this.options.split_object)
+    let tk = 0
 
     for (const key of keys) {
-      if (!data?.hasOwnProperty(key)) return !1
+      if (!data.hasOwnProperty(key)) return !1
       if (tk === keys.length - 1) {
         delete data[key]
         this.options.auto_save && this.save(t)
