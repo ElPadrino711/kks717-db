@@ -23,10 +23,10 @@ export class Database extends TypedEmitter<Events> {
   constructor(options?: opt)
 
   start() : void;
-  set(table: string, key: string, value: any) : void;
-  get(table: string, key: string) : any | undefined;
-  delete(table: string, key: string) : boolean | undefined;
-  has(table: string, key: string) : boolean | undefined;
+  set(key: string, value: any, table: string) : void;
+  get(key: string, table: string) : any | undefined;
+  delete(key: string, table: string) : boolean | undefined;
+  has(key: string, table: string) : boolean | undefined;
   size(table: string) : number | undefined;
   data(table: string) : any | undefined;
   ping(): number;

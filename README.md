@@ -41,28 +41,28 @@ db.start();
 
  #### Set
  ```js
- db.set('main', 'something', 'Hello');
+ db.set('something', 'Hello', 'main');
 
 // main: { "something": "Hello" }
  ```
 
  #### Get
  ```js
- db.get('main', 'something');
+ db.get('something', 'main');
 
  // Returns "Hello"
  ```
 
  #### Delete
  ```js
- db.delete('main', 'something');
+ db.delete('something', 'main');
 
  // main: {}
  ```
 
  #### Has
 ```js
-db.has('main', 'something');
+db.has('something', 'main');
 
 // Returns false
 ```
@@ -71,7 +71,7 @@ db.has('main', 'something');
 db.size('main');
 // 0
 
-db.set('main', 'something', 'Hello');
+db.set(something', 'Hello', 'main');
 // main: { "something": "Hello" }
 
 db.size('main');
@@ -86,10 +86,10 @@ db.data('main');
 
 #### Save
 ```js
-db.set('main', 'something', 'Hello');
+db.set('something', 'Hello', 'main');
 // <Database>.data is modified but not the file
 
-db.save();
+db.save('main');
 // Saves the data
 ```
 
