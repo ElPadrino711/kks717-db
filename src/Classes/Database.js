@@ -94,7 +94,7 @@ class Database extends TypedEmitter {
    * Saves the local data of the provided table
    * @param table {string} table name
    */
-  save(t) {
+  save(t = this.tables[0]) {
     if (!this.ready)
       throw new ErrorDB(
         "Do <Database>.start() first",
@@ -127,7 +127,7 @@ class Database extends TypedEmitter {
    * @param key {string} The key
    * @param value {any} The new value
    */
-  set(t, k, v) {
+  set(k, v, t = this.tables[0]) {
     if (!this.ready)
       throw new ErrorDB(
         "Do <Database>.start() first",
@@ -146,7 +146,8 @@ class Database extends TypedEmitter {
         "INVALID_KEY",
         ".prototype.set(table, key, value)"
       )
-    if (!v)
+    const x = v ?? null
+    if (!x)
       throw new ErrorDB(
         "Value not provided",
         "INVALID_VALUE",
@@ -183,7 +184,7 @@ class Database extends TypedEmitter {
    * @return {any} returns object/string/array/boolean, any of that
    */
 
-  get(t, k) {
+  get(k, t = this.tables[0]) {
     if (!this.ready)
       throw new ErrorDB(
         "Do <Database>.start() first",
@@ -226,7 +227,7 @@ class Database extends TypedEmitter {
    * @param key {string} the key
    * @return {boolean}
    */
-  delete(t, k) {
+  delete(k, t = this.tables[0]) {
     if (!this.ready)
       throw new ErrorDB(
         "Do <Database>.start() first",
@@ -274,7 +275,7 @@ class Database extends TypedEmitter {
 	 * @param key {string} the key
 	 * @return {boolean}
 	 */
-  has(t, k) {
+  has(k, t = this.tables[0]) {
     if (!this.ready)
       throw new ErrorDB(
         "Do <Database>.start() first",
@@ -313,7 +314,7 @@ class Database extends TypedEmitter {
    * @param table {string} the table
    * @return {number}
    */
-  size(t) {
+  size(t = this.tables[0]) {
     if (!this.ready)
       throw new ErrorDB(
         "Do <Database>.start() first",
@@ -341,7 +342,7 @@ class Database extends TypedEmitter {
    * @param table {string} the table
    * @return {any}
    */
-  async data(t) {
+  data(t = this.tables[0]) {
     if (!this.ready)
       throw new ErrorDB(
         "Do <Database>.start() first",
@@ -354,7 +355,7 @@ class Database extends TypedEmitter {
         "INVALID_TABLE",
         ".prototype.data(table)"
       )
-    let data = await this.object[t]
+    let data = this.object[t]
     if (!data)
       throw new ErrorDB(
         "Table " + t + " doesnt exist",
